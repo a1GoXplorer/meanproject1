@@ -2,7 +2,7 @@
   "name": "meanproject1",
   "version": "1.0.0",
   "description": "This is just rollling the ball along.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/a1GoXplorer/meanproject1",
   "dependencies": {
+    "body-parser": "^1.12.4",
+    "ejs": "^2.3.1",
     "express": "^4.12.4"
   }
 }
