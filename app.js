@@ -1,15 +1,29 @@
 var express = require('express');
 var ejs = require('ejs');
-var bodyParser = require('bodyParser');
+var bodyParser = require('body-parser');
+var request = require('request');
+var MongoClient = require('mongodb').MongoClient
+ , assert = require('assert');
+
+var url = 'mongodb://localhost:27017/meanproject1';
+
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+
+  db.close();
+});
 
 
-
-app.set('view engine', 'ejs');
 
 var app = express();
 
+app.use(bodyParser.urlencoded())
+
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res){
-  res.render('index.html');
+  res.render('index.ejs', {name: "Mark Daniels"});
 });
 
 app.get("/greet/:name/:lastname", function(req, res) {
