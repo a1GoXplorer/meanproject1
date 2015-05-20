@@ -5,9 +5,10 @@ var request = require('request');
 var MongoClient = require('mongodb').MongoClient
  , assert = require('assert');
 
-var url = 'mongodb://localhost:27017/meanproject1';
+var url = 'mongodb://localhost:27017/meanproject1/data';
 
-MongoClient.connect(url, function(err, db) {
+//connect to the db
+MongoClient.connect('mongodb://localhost:27017/data', function(err, db) {
   assert.equal(null, err);
   console.log("Connected correctly to server");
 
@@ -18,7 +19,7 @@ MongoClient.connect(url, function(err, db) {
 
 var app = express();
 
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded( {extended: true}))
 
 app.set('view engine', 'ejs');
 
