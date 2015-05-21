@@ -2,18 +2,29 @@ var express = require('express');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var request = require('request');
-var MongoClient = require('mongodb').MongoClient
- , assert = require('assert');
+// var MongoClient = require('mongodb').MongoClient
+//  , assert = require('assert');
 
-var url = 'mongodb://localhost:27017/meanproject1/data';
+// var url = 'mongodb://localhost:27017/meanproject1/data';
 
-//connect to the db
-MongoClient.connect('mongodb://localhost:27017/data', function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server");
+// //connect to the db
+// MongoClient.connect('mongodb://localhost:27017/data', function(err, db) {
+//   assert.equal(null, err);
+//   console.log("Connected correctly to server");
 
-  db.close();
+//   db.close();
+// });
+
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/data/db", function(err, db) {
+  if(!err) {
+    console.log("**CONNECTED TO MONGO!!**");
+  }
 });
+
 
 
 
