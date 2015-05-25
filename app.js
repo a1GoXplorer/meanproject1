@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded( {extended: true}))
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
-  res.render('index.ejs', {name: "Mark Daniels"});
+  res.render('index.ejs', {name: "Sarah Schuerhoff"});
 });
 
 app.get("/greet/:name/:lastname", function(req, res) {
