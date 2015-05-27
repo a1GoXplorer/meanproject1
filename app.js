@@ -2,6 +2,8 @@ var express = require('express');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var request = require('request');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/meanproject1');
 // var MongoClient = require('mongodb').MongoClient
 //  , assert = require('assert');
 
@@ -35,7 +37,7 @@ app.use(bodyParser.urlencoded( {extended: true}))
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
-  res.render('index.ejs', {name: "Sarah Schuerhoff"});
+  res.render('index.ejs', {name: "Jabba the Hutt"});
 });
 
 app.get("/greet/:name/:lastname", function(req, res) {
