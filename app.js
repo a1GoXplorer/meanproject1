@@ -2,20 +2,8 @@ var express = require('express');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var request = require('request');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/meanproject1');
-// var MongoClient = require('mongodb').MongoClient
-//  , assert = require('assert');
-
-// var url = 'mongodb://localhost:27017/meanproject1/data';
-
-// //connect to the db
-// MongoClient.connect('mongodb://localhost:27017/data', function(err, db) {
-//   assert.equal(null, err);
-//   console.log("Connected correctly to server");
-
-//   db.close();
-// });
+var path = require('path');
+var db = require('./models');
 
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
@@ -28,13 +16,12 @@ MongoClient.connect("mongodb://localhost:27017/data/db", function(err, db) {
 });
 
 
-
-
 var app = express();
 
 app.use(bodyParser.urlencoded( {extended: true}))
 
 app.set('view engine', 'ejs');
+
 
 app.get('/', function(req, res){
   res.render('index.ejs', {name: "Jabba the Hutt"});
@@ -73,4 +60,6 @@ app.get("/subtract/*", function(req, res) {
 })
 
 
-app.listen(3000);
+app.listen(3000, function() {
+  console.log("THIS PARTY'S JUST GETTING STARTED!!! - Kirk Van Houten");
+});
